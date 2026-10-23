@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Demande de Prêt Étudiant BNP Paribas — formulaire en ligne sécurisé.">
+  <title>Demande de Prêt Étudiant | BNP Paribas</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="apply-page">
+
+  <header class="site-header" role="banner">
+    <div class="header-inner container">
+      <a href="index.html" class="logo" aria-label="BNP Paribas - Accueil">
+        <span class="logo-mark">BNP</span>
+        <span class="logo-text">PARIBAS</span>
+      </a>
+      <nav class="main-nav" aria-label="Navigation principale" data-i18n-aria-label="a11y.nav">
+        <ul class="nav-list">
+          <li><a href="index.html" data-i18n="nav.particuliers">Particuliers</a></li>
+          <li><a href="#" data-i18n="nav.professionnels">Professionnels</a></li>
+          <li><a href="#" data-i18n="nav.entreprises">Entreprises</a></li>
+          <li><a href="#" data-i18n="nav.institutionnels">Institutionnels</a></li>
+        </ul>
+      </nav>
+      <div class="header-utils">
+        <a href="#" class="util-link" data-i18n="util.espace_client">Espace Client</a>
+        <a href="#" class="util-link" data-i18n="util.agences">Agences</a>
+        <div class="lang-switch" role="group" aria-label="Langue / Language">
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="true">FR</button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="search-toggle" aria-label="Rechercher" data-i18n-aria-label="a11y.search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <button class="mobile-menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false"
+                data-i18n-aria-label="a11y.menu_open"
+                data-i18n-aria-label-open="a11y.menu_close">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <nav class="breadcrumb container" aria-label="Fil d'Ariane" data-i18n-aria-label="a11y.breadcrumb">
+    <ol>
+      <li><a href="index.html" data-i18n="breadcrumb.home">Accueil</a></li>
+      <li><a href="index.html" data-i18n="breadcrumb.borrow">Emprunter</a></li>
+      <li><a href="index.html" data-i18n="breadcrumb.consumer_credit">Crédits consommation</a></li>
+      <li><a href="index.html" data-i18n="breadcrumb.student_loan">Prêt étudiants</a></li>
+      <li aria-current="page" data-i18n="breadcrumb.apply">Demande en ligne</li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="hero hero--compact">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <p class="hero-eyebrow" data-i18n="apply.hero.eyebrow">Demande de prêt étudiant</p>
+        <h1 data-i18n="apply.hero.title">Finalisez votre demande en quelques minutes</h1>
+        <p class="hero-subtitle" data-i18n="apply.hero.subtitle">
+          Remplissez les 5 étapes ci-dessous. Vos informations sont traitées de manière sécurisée
+          et confidentielle. À la fin du parcours, vous pourrez transmettre votre dossier à un conseiller.
+        </p>
+        <div class="hero-trust-row" aria-label="Garanties">
+          <span class="trust-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="11" width="16" height="10" rx="2" ry="2"/>
+              <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+            </svg>
+            <span data-i18n="trust.secure">Connexion sécurisée</span>
+          </span>
+          <span class="trust-chip">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <polyline points="12 7 12 12 15 14"/>
+            </svg>
+            <span data-i18n="trust.time">5 minutes</span>
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <nav class="stepper container" aria-label="Progression de la demande">
+      <ol class="stepper-list">
+        <li class="stepper-item is-active" data-step-indicator="1">
+          <span class="stepper-dot">1</span>
+          <span class="stepper-label" data-i18n="step1.label">Informations personnelles</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="2">
+          <span class="stepper-dot">2</span>
+          <span class="stepper-label" data-i18n="step2.label">Coordonnées résidentielles</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="3">
+          <span class="stepper-dot">3</span>
+          <span class="stepper-label" data-i18n="step3.label">Parcours académique</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="4">
+          <span class="stepper-dot">4</span>
+          <span class="stepper-label" data-i18n="step4.label">Projet de financement</span>
+        </li>
+        <li class="stepper-item" data-step-indicator="5">
+          <span class="stepper-dot">5</span>
+          <span class="stepper-label" data-i18n="step5.label">Récapitulatif & envoi</span>
+        </li>
+      </ol>
+    </nav>
+
+    <section class="apply-section section-pad">
+      <div class="container apply-container">
+
+        <form id="loanApplicationForm" class="apply-form" novalidate>
+
+          <fieldset class="form-step is-active" data-step="1" id="step-1">
+            <legend class="form-step-legend">
+              <span class="step-badge" data-i18n="step1.badge">Étape 1 / 5</span>
+              <h2 data-i18n="step1.title">Informations personnelles</h2>
+              <p data-i18n="step1.desc">Commençons par faire connaissance. Ces informations nous permettent de vérifier votre identité.</p>
+            </legend>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <span class="field-label">
+                  <span data-i18n="field.civilite">Civilité</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <div class="radio-group radio-group--inline">
+                  <label class="radio-card">
+                    <input type="radio" name="civilite" value="madame" required>
+                    <span class="radio-card-body" data-i18n="civilite.madame">Madame</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="civilite" value="monsieur" required>
+                    <span class="radio-card-body" data-i18n="civilite.monsieur">Monsieur</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="civilite" value="autre">
+                    <span class="radio-card-body" data-i18n="civilite.autre">Autre / Ne pas préciser</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="prenom" class="field-label">
+                  <span data-i18n="field.prenom">Prénom</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="prenom" name="prenom" class="field-input"
+                       placeholder="Ex. : Camille" autocomplete="given-name" required>
+              </div>
+              <div class="form-field">
+                <label for="nom" class="field-label">
+                  <span data-i18n="field.nom">Nom de famille</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="nom" name="nom" class="field-input"
+                       placeholder="Ex. : Dubois" autocomplete="family-name" required>
+              </div>
+              <div class="form-field">
+                <label for="date-naissance" class="field-label">
+                  <span data-i18n="field.date_naissance">Date de naissance</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="date" id="date-naissance" name="date_naissance" class="field-input"
+                       autocomplete="bday" required>
+              </div>
+              <div class="form-field">
+                <label for="lieu-naissance" class="field-label">
+                  <span data-i18n="field.lieu_naissance">Lieu de naissance</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="lieu-naissance" name="lieu_naissance" class="field-input"
+                       placeholder="Ex. : Lyon (69)" required>
+              </div>
+              <div class="form-field">
+                <label for="nationalite" class="field-label">
+                  <span data-i18n="field.nationalite">Nationalité</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="nationalite" name="nationalite" class="field-select" required>
+                  <option value="" disabled selected data-i18n="select.nationalite">Sélectionnez votre nationalité</option>
+                  <option value="francaise" data-i18n="nationalite.francaise">Française</option>
+                  <option value="ue" data-i18n="nationalite.ue">Union européenne (autre)</option>
+                  <option value="hors-ue" data-i18n="nationalite.hors_ue">Hors Union européenne</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="email" class="field-label">
+                  <span data-i18n="field.email">Adresse e-mail</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="email" id="email" name="email" class="field-input"
+                       placeholder="prenom.nom@email.com" autocomplete="email" required>
+                <span class="field-hint" data-i18n="hint.email">Un lien de confirmation vous sera envoyé.</span>
+              </div>
+              <div class="form-field">
+                <label for="telephone" class="field-label">
+                  <span data-i18n="field.telephone">Téléphone mobile</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="tel" id="telephone" name="telephone" class="field-input"
+                       placeholder="06 12 34 56 78" autocomplete="tel" required>
+              </div>
+              <div class="form-field">
+                <label for="situation-familiale" class="field-label" data-i18n="field.situation_familiale">Situation familiale</label>
+                <select id="situation-familiale" name="situation_familiale" class="field-select">
+                  <option value="" disabled selected data-i18n="select.choose">Choisissez une option</option>
+                  <option value="celibataire" data-i18n="situation.celibataire">Célibataire</option>
+                  <option value="concubinage" data-i18n="situation.concubinage">En concubinage / PACS</option>
+                  <option value="marie" data-i18n="situation.marie">Marié(e)</option>
+                  <option value="divorce" data-i18n="situation.divorce">Divorcé(e)</option>
+                  <option value="veuf" data-i18n="situation.veuf">Veuf / Veuve</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="enfants" class="field-label" data-i18n="field.enfants">Nombre d'enfants à charge</label>
+                <input type="number" id="enfants" name="enfants" class="field-input"
+                       min="0" max="10" value="0" inputmode="numeric">
+              </div>
+            </div>
+            <div class="form-actions">
+              <span class="form-step-note" data-i18n="note.required">* Champs obligatoires</span>
+              <button type="button" class="btn btn-primary btn-lg" data-next-step="1">
+                <span data-i18n="btn.continue.address">Continuer vers les coordonnées</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="2" id="step-2" hidden>
+            <legend class="form-step-legend">
+              <span class="step-badge" data-i18n="step2.badge">Étape 2 / 5</span>
+              <h2 data-i18n="step2.title">Coordonnées résidentielles</h2>
+              <p data-i18n="step2.desc">Où résidez-vous pendant vos études ? Ces informations nous servent à identifier votre agence régionale.</p>
+            </legend>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="adresse" class="field-label">
+                  <span data-i18n="field.adresse">Adresse (numéro et rue)</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="adresse" name="adresse" class="field-input"
+                       placeholder="Ex. : 12 rue des Écoles" autocomplete="street-address" required>
+              </div>
+              <div class="form-field form-field--full">
+                <label for="complement-adresse" class="field-label" data-i18n="field.complement">Complément d'adresse</label>
+                <input type="text" id="complement-adresse" name="complement_adresse" class="field-input"
+                       placeholder="Bâtiment, escalier, appartement…">
+              </div>
+              <div class="form-field">
+                <label for="code-postal" class="field-label">
+                  <span data-i18n="field.code_postal">Code postal</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="code-postal" name="code_postal" class="field-input"
+                       placeholder="75009" inputmode="numeric" pattern="[0-9]{5}" maxlength="5"
+                       autocomplete="postal-code" required>
+              </div>
+              <div class="form-field">
+                <label for="ville" class="field-label">
+                  <span data-i18n="field.ville">Ville</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="ville" name="ville" class="field-input"
+                       placeholder="Ex. : Paris" autocomplete="address-level2" required>
+              </div>
+              <div class="form-field">
+                <label for="pays" class="field-label">
+                  <span data-i18n="field.pays">Pays</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="pays" name="pays" class="field-select" required>
+                  <option value="france" selected data-i18n="pays.france">France</option>
+                </select>
+              </div>
+              <div class="form-field form-field--full">
+                <span class="field-label">
+                  <span data-i18n="field.type_logement">Type de logement</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <div class="radio-group radio-group--inline">
+                  <label class="radio-card">
+                    <input type="radio" name="type_logement" value="parents" required>
+                    <span class="radio-card-body" data-i18n="logement.parents">Chez mes parents</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="type_logement" value="location">
+                    <span class="radio-card-body" data-i18n="logement.location">Location</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="type_logement" value="crous">
+                    <span class="radio-card-body" data-i18n="logement.crous">Résidence CROUS</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="type_logement" value="autre">
+                    <span class="radio-card-body" data-i18n="logement.autre">Autre</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="logement-depuis" class="field-label" data-i18n="field.logement_depuis">Vous y résidez depuis</label>
+                <input type="month" id="logement-depuis" name="logement_depuis" class="field-input">
+              </div>
+              <div class="form-field">
+                <label for="loyer" class="field-label" data-i18n="field.loyer">Loyer mensuel (€)</label>
+                <input type="number" id="loyer" name="loyer" class="field-input"
+                       placeholder="Ex. : 650" min="0" step="10" inputmode="numeric">
+                <span class="field-hint" data-i18n="hint.loyer">Laissez vide si vous êtes hébergé(e) gratuitement.</span>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-dark" data-prev-step="2">
+                <span aria-hidden="true">←</span>
+                <span data-i18n="btn.back">Retour</span>
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" data-next-step="2">
+                <span data-i18n="btn.continue.academic">Continuer vers le parcours académique</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="3" id="step-3" hidden>
+            <legend class="form-step-legend">
+              <span class="step-badge" data-i18n="step3.badge">Étape 3 / 5</span>
+              <h2 data-i18n="step3.title">Parcours académique</h2>
+              <p data-i18n="step3.desc">Parlez-nous de vos études. Ces éléments déterminent l'adéquation de votre projet de prêt.</p>
+            </legend>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <label for="etablissement" class="field-label">
+                  <span data-i18n="field.etablissement">Établissement d'enseignement supérieur</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <div class="select-search-wrap">
+                  <input type="search" id="etablissementSearch" class="field-input select-search"
+                         placeholder="Rechercher un établissement…" autocomplete="off"
+                         aria-label="Rechercher un établissement">
+                </div>
+                <select id="etablissement" name="etablissement" class="field-select field-select--tall" required size="1">
+                  <option value="" disabled selected data-i18n="select.etablissement">Sélectionnez votre établissement</option>
+                  <optgroup label="Universités">
+                    <option value="amu">Aix-Marseille Université</option>
+                    <option value="angers">Université d'Angers</option>
+                    <option value="antilles">Université des Antilles</option>
+                    <option value="avignon">Avignon Université</option>
+                    <option value="bfc">Université Bourgogne Franche-Comté</option>
+                    <option value="bordeaux">Université de Bordeaux</option>
+                    <option value="bordeaux-montaigne">Université Bordeaux Montaigne</option>
+                    <option value="brest">Université de Bretagne Occidentale</option>
+                    <option value="caen">Université de Caen Normandie</option>
+                    <option value="clermont">Université Clermont Auvergne</option>
+                    <option value="cote-azur">Université Côte d'Azur</option>
+                    <option value="corse">Université de Corse Pascal Paoli</option>
+                    <option value="evry">Université d'Évry Paris-Saclay</option>
+                    <option value="franche-comte">Université de Franche-Comté</option>
+                    <option value="haute-alsace">Université de Haute-Alsace</option>
+                    <option value="lille">Université de Lille</option>
+                    <option value="limoges">Université de Limoges</option>
+                    <option value="lorraine">Université de Lorraine</option>
+                    <option value="lyon1">Université Claude Bernard Lyon 1</option>
+                    <option value="lyon2">Université Lumière Lyon 2</option>
+                    <option value="lyon3">Université Jean Moulin Lyon 3</option>
+                    <option value="montpellier">Université de Montpellier</option>
+                    <option value="montpellier3">Université Paul-Valéry Montpellier 3</option>
+                    <option value="nantes">Nantes Université</option>
+                    <option value="paris-cite">Université Paris Cité</option>
+                    <option value="paris1">Université Paris 1 Panthéon-Sorbonne</option>
+                    <option value="paris2">Université Paris 2 Panthéon-Assas</option>
+                    <option value="paris3">Université Sorbonne Nouvelle Paris 3</option>
+                    <option value="paris8">Université Paris 8 Vincennes-Saint-Denis</option>
+                    <option value="paris-nanterre">Université Paris Nanterre</option>
+                    <option value="paris-saclay">Université Paris-Saclay</option>
+                    <option value="pau">Université de Pau et des Pays de l'Adour</option>
+                    <option value="perpignan">Université de Perpignan Via Domitia</option>
+                    <option value="poitiers">Université de Poitiers</option>
+                    <option value="reims">Université de Reims Champagne-Ardenne</option>
+                    <option value="rennes1">Université de Rennes 1</option>
+                    <option value="rennes2">Université Rennes 2</option>
+                    <option value="rouen">Université de Rouen Normandie</option>
+                    <option value="saint-etienne">Université Jean Monnet Saint-Étienne</option>
+                    <option value="strasbourg">Université de Strasbourg</option>
+                    <option value="toulouse1">Université Toulouse 1 Capitole</option>
+                    <option value="toulouse2">Université Toulouse 2 Jean Jaurès</option>
+                    <option value="toulouse3">Université Toulouse 3 Paul Sabatier</option>
+                    <option value="tours">Université de Tours</option>
+                    <option value="uvsq">Université de Versailles Saint-Quentin-en-Yvelines</option>
+                    <option value="sorbonne">Sorbonne Université</option>
+                    <option value="ehess">EHESS</option>
+                    <option value="ephe">EPHE</option>
+                  </optgroup>
+                  <optgroup label="Grandes écoles & écoles d'ingénieurs">
+                    <option value="polytechnique">École Polytechnique</option>
+                    <option value="centrale-sup">CentraleSupélec</option>
+                    <option value="mines-paris">Mines ParisTech</option>
+                    <option value="ponts">École des Ponts ParisTech</option>
+                    <option value="telecom-paris">Télécom Paris</option>
+                    <option value="ensta">ENSTA Paris</option>
+                    <option value="ensae">ENSAE Paris</option>
+                    <option value="agroparistech">AgroParisTech</option>
+                    <option value="espci">ESPCI Paris</option>
+                    <option value="chimie-paris">Chimie ParisTech</option>
+                    <option value="arts-et-metiers">Arts et Métiers (ENSAM)</option>
+                    <option value="centrale-lyon">Centrale Lyon</option>
+                    <option value="centrale-nantes">Centrale Nantes</option>
+                    <option value="centrale-lille">Centrale Lille</option>
+                    <option value="grenoble-inp">Grenoble INP</option>
+                    <option value="insa-lyon">INSA Lyon</option>
+                    <option value="insa-rennes">INSA Rennes</option>
+                    <option value="insa-toulouse">INSA Toulouse</option>
+                    <option value="insa-rouen">INSA Rouen Normandie</option>
+                    <option value="utc">Université de Technologie de Compiègne</option>
+                    <option value="utt">Université de Technologie de Troyes</option>
+                    <option value="utbm">Université de Technologie de Belfort-Montbéliard</option>
+                    <option value="isae-supaero">ISAE-SUPAERO</option>
+                    <option value="enac">ENAC</option>
+                    <option value="ens-lyon">ENS de Lyon</option>
+                    <option value="ens-paris">ENS Paris</option>
+                    <option value="ens-rennes">ENS Rennes</option>
+                    <option value="eurecom">EURECOM</option>
+                    <option value="imt-atlantique">IMT Atlantique</option>
+                    <option value="mines-saint-etienne">Mines Saint-Étienne</option>
+                    <option value="imt-mines-albi">IMT Mines Albi</option>
+                    <option value="imt-mines-ales">IMT Mines Alès</option>
+                    <option value="imt-nord-europe">IMT Nord Europe</option>
+                    <option value="isae-ensma">ISAE-ENSMA</option>
+                    <option value="enseeiht">ENSEEIHT</option>
+                    <option value="phelma">Grenoble INP-Phelma</option>
+                  </optgroup>
+                  <optgroup label="Écoles de commerce & management">
+                    <option value="hec">HEC Paris</option>
+                    <option value="essec">ESSEC Business School</option>
+                    <option value="escp">ESCP Business School</option>
+                    <option value="edhec">EDHEC Business School</option>
+                    <option value="emlyon">emlyon business school</option>
+                    <option value="audencia">Audencia Business School</option>
+                    <option value="grenoble-em">Grenoble École de Management</option>
+                    <option value="kedge">KEDGE Business School</option>
+                    <option value="neoma">NEOMA Business School</option>
+                    <option value="skema">SKEMA Business School</option>
+                    <option value="tbs">Toulouse Business School</option>
+                    <option value="rennes-sb">Rennes School of Business</option>
+                    <option value="icn">ICN Business School</option>
+                    <option value="em-strasbourg">EM Strasbourg</option>
+                    <option value="esdes">ESDES Business School</option>
+                    <option value="essca">ESSCA</option>
+                    <option value="ieseg">IÉSEG School of Management</option>
+                    <option value="excelia">Excelia Business School</option>
+                    <option value="bsb">Burgundy School of Business</option>
+                    <option value="psb">PSB Paris School of Business</option>
+                  </optgroup>
+                  <optgroup label="IUT — Instituts Universitaires de Technologie">
+                    <option value="iut-aix">IUT d'Aix-Marseille</option>
+                    <option value="iut-amiens">IUT d'Amiens</option>
+                    <option value="iut-angers">IUT d'Angers</option>
+                    <option value="iut-annecy">IUT d'Annecy</option>
+                    <option value="iut-bayonne">IUT de Bayonne et du Pays Basque</option>
+                    <option value="iut-belfort">IUT de Belfort-Montbéliard</option>
+                    <option value="iut-bordeaux">IUT de Bordeaux</option>
+                    <option value="iut-brest">IUT de Brest</option>
+                    <option value="iut-caen">IUT de Caen</option>
+                    <option value="iut-clermont">IUT de Clermont-Ferrand</option>
+                    <option value="iut-grenoble">IUT de Grenoble</option>
+                    <option value="iut-lille">IUT de Lille</option>
+                    <option value="iut-limoges">IUT de Limoges</option>
+                    <option value="iut-lyon1">IUT de Lyon 1</option>
+                    <option value="iut-montpellier">IUT de Montpellier</option>
+                    <option value="iut-nantes">IUT de Nantes</option>
+                    <option value="iut-nice">IUT de Nice</option>
+                    <option value="iut-orleans">IUT d'Orléans</option>
+                    <option value="iut-paris">IUT de Paris</option>
+                    <option value="iut-rennes">IUT de Rennes</option>
+                    <option value="iut-rouen">IUT de Rouen</option>
+                    <option value="iut-saint-etienne">IUT de Saint-Étienne</option>
+                    <option value="iut-strasbourg">IUT de Strasbourg</option>
+                    <option value="iut-toulouse">IUT de Toulouse</option>
+                    <option value="iut-tours">IUT de Tours</option>
+                  </optgroup>
+                  <optgroup label="BTS & formations en lycée">
+                    <option value="bts-paris">Lycée général et technologique — Paris</option>
+                    <option value="bts-lyon">Lycée général et technologique — Lyon</option>
+                    <option value="bts-marseille">Lycée général et technologique — Marseille</option>
+                    <option value="bts-toulouse">Lycée général et technologique — Toulouse</option>
+                    <option value="bts-bordeaux">Lycée général et technologique — Bordeaux</option>
+                    <option value="bts-lille">Lycée général et technologique — Lille</option>
+                    <option value="bts-nantes">Lycée général et technologique — Nantes</option>
+                    <option value="bts-strasbourg">Lycée général et technologique — Strasbourg</option>
+                    <option value="bts-rennes">Lycée général et technologique — Rennes</option>
+                    <option value="bts-montpellier">Lycée général et technologique — Montpellier</option>
+                  </optgroup>
+                  <optgroup label="Écoles spécialisées (art, architecture, santé…)">
+                    <option value="ensa-paris">ENSA Paris-Belleville</option>
+                    <option value="ensa-malaquais">ENSA Paris-Malaquais</option>
+                    <option value="ensa-versailles">ENSA Versailles</option>
+                    <option value="ensa-lyon">ENSA Lyon</option>
+                    <option value="ensa-marseille">ENSA Marseille</option>
+                    <option value="ensa-toulouse">ENSA Toulouse</option>
+                    <option value="ensa-nantes">ENSA Nantes</option>
+                    <option value="ensa-strasbourg">ENSA Strasbourg</option>
+                    <option value="beaux-arts-paris">Beaux-Arts de Paris</option>
+                    <option value="ensad">EnsAD — Arts Décoratifs</option>
+                    <option value="ensci">ENSCI — Les Ateliers</option>
+                    <option value="sciences-po">Sciences Po Paris</option>
+                    <option value="sciences-po-bordeaux">Sciences Po Bordeaux</option>
+                    <option value="sciences-po-lille">Sciences Po Lille</option>
+                    <option value="sciences-po-grenoble">Sciences Po Grenoble</option>
+                    <option value="sciences-po-toulouse">Sciences Po Toulouse</option>
+                    <option value="sciences-po-rennes">Sciences Po Rennes</option>
+                    <option value="sciences-po-strasbourg">Sciences Po Strasbourg</option>
+                    <option value="ifsi">IFSI — Institut de Formation en Soins Infirmiers</option>
+                    <option value="pharmacie">Faculté de Pharmacie</option>
+                    <option value="medecine">Faculté de Médecine</option>
+                    <option value="droit">Faculté de Droit</option>
+                  </optgroup>
+                  <optgroup label="Autre">
+                    <option value="autre" data-i18n="etablissement.autre">Mon établissement n'est pas dans la liste</option>
+                  </optgroup>
+                </select>
+              </div>
+              <div class="form-field form-field--full" id="autreEtablissementWrap" hidden>
+                <label for="autre-etablissement" class="field-label">
+                  <span data-i18n="field.autre_etablissement">Précisez le nom de votre établissement</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <input type="text" id="autre-etablissement" name="autre_etablissement" class="field-input"
+                       placeholder="Ex. : Institut supérieur des arts appliqués">
+              </div>
+              <div class="form-field">
+                <label for="type-diplome" class="field-label">
+                  <span data-i18n="field.type_diplome">Diplôme préparé</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="type-diplome" name="type_diplome" class="field-select" required>
+                  <option value="" disabled selected data-i18n="select.choose_generic">Sélectionnez</option>
+                  <option value="licence" data-i18n="diplome.licence">Licence</option>
+                  <option value="master" data-i18n="diplome.master">Master</option>
+                  <option value="bts" data-i18n="diplome.bts">BTS</option>
+                  <option value="but" data-i18n="diplome.but">BUT</option>
+                  <option value="grande-ecole" data-i18n="diplome.grande_ecole">Diplôme de grande école</option>
+                  <option value="ingenieur" data-i18n="diplome.ingenieur">Diplôme d'ingénieur</option>
+                  <option value="doctorat" data-i18n="diplome.doctorat">Doctorat</option>
+                  <option value="autre" data-i18n="diplome.autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="domaine" class="field-label">
+                  <span data-i18n="field.domaine">Domaine d'études</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="domaine" name="domaine" class="field-select" required>
+                  <option value="" disabled selected data-i18n="select.choose_generic">Sélectionnez</option>
+                  <option value="droit" data-i18n="domaine.droit">Droit, sciences politiques</option>
+                  <option value="eco-gestion" data-i18n="domaine.eco_gestion">Économie, gestion, commerce</option>
+                  <option value="lettres-langues" data-i18n="domaine.lettres_langues">Lettres, langues, arts</option>
+                  <option value="sciences" data-i18n="domaine.sciences">Sciences, technologies</option>
+                  <option value="sante" data-i18n="domaine.sante">Santé, médecine</option>
+                  <option value="ingenierie" data-i18n="domaine.ingenierie">Ingénierie</option>
+                  <option value="info-numerique" data-i18n="domaine.info_numerique">Informatique, numérique</option>
+                  <option value="sciences-sociales" data-i18n="domaine.sciences_sociales">Sciences sociales</option>
+                  <option value="education" data-i18n="domaine.education">Éducation, enseignement</option>
+                  <option value="autre" data-i18n="diplome.autre">Autre</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="annee-etudes" class="field-label">
+                  <span data-i18n="field.annee_etudes">Année d'études</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="annee-etudes" name="annee_etudes" class="field-select" required>
+                  <option value="" disabled selected data-i18n="select.choose_generic">Sélectionnez</option>
+                  <option value="1" data-i18n="annee.1">1ère année</option>
+                  <option value="2" data-i18n="annee.2">2ème année</option>
+                  <option value="3" data-i18n="annee.3">3ème année</option>
+                  <option value="4" data-i18n="annee.4">4ème année</option>
+                  <option value="5" data-i18n="annee.5">5ème année</option>
+                  <option value="6+" data-i18n="annee.6plus">6ème année et plus</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <label for="fin-etudes" class="field-label" data-i18n="field.fin_etudes">Date de fin d'études prévue</label>
+                <input type="month" id="fin-etudes" name="fin_etudes" class="field-input">
+              </div>
+              <div class="form-field form-field--full">
+                <span class="field-label">
+                  <span data-i18n="field.rythme">Rythme de formation</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <div class="radio-group radio-group--inline">
+                  <label class="radio-card">
+                    <input type="radio" name="rythme" value="temps-plein" required>
+                    <span class="radio-card-body" data-i18n="rythme.temps_plein">Temps plein</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="rythme" value="alternance">
+                    <span class="radio-card-body" data-i18n="rythme.alternance">Alternance / Apprentissage</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="rythme" value="stage">
+                    <span class="radio-card-body" data-i18n="rythme.stage">Stage rémunéré</span>
+                  </label>
+                </div>
+              </div>
+              <div class="id-verify-section" id="idVerifySection" hidden>
+                <h3 class="id-verify-heading">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                    <circle cx="9" cy="12" r="3"/>
+                    <path d="M15 10h4"/>
+                    <path d="M15 14h4"/>
+                  </svg>
+                  <span data-i18n="id.verify.heading">Vérification d'identité étudiant</span>
+                </h3>
+                <p class="id-verify-desc" data-i18n="id.verify.desc">
+                  Pour le Prêt étudiant humanitaire, une vérification d'identité est nécessaire.
+                  Choisissez le type de document et téléversez-le.
+                </p>
+                <div class="id-verify-grid">
+                  <div class="form-field">
+                    <label for="id-type" class="field-label">
+                      <span data-i18n="field.id_type">Type de document</span>
+                      <abbr class="required" title="requis">*</abbr>
+                    </label>
+                    <select id="id-type" name="id_type" class="field-select">
+                      <option value="" disabled selected data-i18n="select.choose_generic">Sélectionnez</option>
+                      <option value="carte-etudiante" data-i18n="id.type.carte_etudiante">Carte étudiante</option>
+                      <option value="passeport" data-i18n="id.type.passeport">Passeport</option>
+                      <option value="carte-identite" data-i18n="id.type.carte_identite">Carte d'identité</option>
+                      <option value="titre-sejour" data-i18n="id.type.titre_sejour">Titre de séjour</option>
+                    </select>
+                  </div>
+                  <div class="form-field file-upload">
+                    <span class="field-label">
+                      <span data-i18n="field.id_file">Document justificatif</span>
+                      <abbr class="required" title="requis">*</abbr>
+                    </span>
+                    <input type="file" id="id-file" name="id_file" accept="image/*,.pdf" class="file-upload-input">
+                    <label for="id-file" class="file-upload-btn">
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                      </svg>
+                      <span data-i18n="id.file.choose">Choisir un fichier</span>
+                    </label>
+                    <div class="file-upload-filename" id="idFileName" hidden>
+                      <span></span>
+                    </div>
+                    <div class="file-upload-preview" id="idFilePreview" hidden>
+                      <img alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-dark" data-prev-step="3">
+                <span aria-hidden="true">←</span>
+                <span data-i18n="btn.back">Retour</span>
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" data-next-step="3">
+                <span data-i18n="btn.continue.financing">Continuer vers le financement</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="4" id="step-4" hidden>
+            <legend class="form-step-legend">
+              <span class="step-badge" data-i18n="step4.badge">Étape 4 / 5</span>
+              <h2 data-i18n="step4.title">Projet de financement</h2>
+              <p data-i18n="step4.desc">Définissons ensemble le montant et les modalités de votre prêt étudiant.</p>
+            </legend>
+            <div class="form-grid">
+              <div class="form-field form-field--full">
+                <span class="field-label">
+                  <span data-i18n="field.loan_type">Type de prêt</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <p class="field-hint" data-i18n="hint.loan_type">Choisissez le type de prêt qui correspond à votre projet.</p>
+                <div class="loan-type-group" role="radiogroup" aria-label="Type de prêt">
+                  <label class="loan-type-card">
+                    <input type="radio" name="loan_type" value="humanitaire" required>
+                    <span class="loan-type-card-body">
+                      <span class="loan-type-name" data-i18n="loan.humanitaire.name">Prêt étudiant humanitaire</span>
+                      <span class="loan-type-ceiling" data-i18n="loan.humanitaire.ceiling">Jusqu'à 15 000 €</span>
+                      <span class="loan-type-desc" data-i18n="loan.humanitaire.desc">Pour les étudiants engagés dans un projet à impact social ou solidaire.</span>
+                    </span>
+                  </label>
+                  <label class="loan-type-card">
+                    <input type="radio" name="loan_type" value="personnel-etudiant">
+                    <span class="loan-type-card-body">
+                      <span class="loan-type-name" data-i18n="loan.personnel_etudiant.name">Prêt personnel étudiant</span>
+                      <span class="loan-type-ceiling" data-i18n="loan.personnel_etudiant.ceiling">Jusqu'à 7 000 €</span>
+                      <span class="loan-type-desc" data-i18n="loan.personnel_etudiant.desc">Pour financer vos besoins courants et votre matériel.</span>
+                    </span>
+                  </label>
+                  <label class="loan-type-card">
+                    <input type="radio" name="loan_type" value="personnel-instantane">
+                    <span class="loan-type-card-body">
+                      <span class="loan-type-name" data-i18n="loan.personnel_instantane.name">Prêt personnel instantané</span>
+                      <span class="loan-type-ceiling" data-i18n="loan.personnel_instantane.ceiling">Jusqu'à 3 000 €</span>
+                      <span class="loan-type-desc" data-i18n="loan.personnel_instantane.desc">Pour un besoin ponctuel, avec une réponse rapide.</span>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="amount-section-block form-field form-field--full" id="amountSection" hidden>
+                <span class="field-label">
+                  <span data-i18n="field.montant">Montant souhaité</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <p class="field-hint" data-i18n="hint.montant">Choisissez le montant qui correspond à votre projet. Vous pourrez l'ajuster avec votre conseiller.</p>
+                <div class="amount-grid" id="amountGrid" role="radiogroup" aria-label="Montant du prêt"></div>
+                <div class="custom-amount-row">
+                  <label for="montant-custom" class="custom-amount-label" data-i18n="field.montant_custom">Ou saisissez un montant personnalisé :</label>
+                  <div class="custom-amount-input-wrap">
+                    <input type="number" id="montant-custom" name="montant_custom" class="field-input"
+                           min="500" max="25000" step="100" placeholder="500 – 25 000" inputmode="numeric"
+                           aria-describedby="montant-custom-error">
+                    <span class="custom-amount-suffix">€</span>
+                  </div>
+                </div>
+                <p class="field-error" id="montant-custom-error" hidden></p>
+              </div>
+              <div class="form-field">
+                <label for="duree" class="field-label">
+                  <span data-i18n="field.duree">Durée de remboursement</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </label>
+                <select id="duree" name="duree" class="field-select" required>
+                  <option value="" disabled data-i18n="select.choose_generic">Sélectionnez</option>
+                  <option value="12" data-i18n="duree.12">12 mois (1 an)</option>
+                  <option value="24" data-i18n="duree.24">24 mois (2 ans)</option>
+                  <option value="36" data-i18n="duree.36">36 mois (3 ans)</option>
+                  <option value="48" data-i18n="duree.48">48 mois (4 ans)</option>
+                  <option value="60" data-i18n="duree.60">60 mois (5 ans)</option>
+                  <option value="84" data-i18n="duree.84">84 mois (7 ans)</option>
+                  <option value="120" selected data-i18n="duree.120">120 mois (10 ans) — mensualité réduite</option>
+                </select>
+                <span class="field-hint" data-i18n="hint.duree">Une durée plus longue réduit votre mensualité.</span>
+                <span class="field-hint field-hint--warning" id="dureeCapHint" data-i18n="hint.duree.cap" hidden>Pour un montant supérieur ou égal à 10 000 €, la durée maximale est de 24 mois.</span>
+              </div>
+              <div class="form-field form-field--full">
+                <span class="field-label">
+                  <span data-i18n="field.differe">Type de différé de remboursement</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <div class="radio-group radio-group--inline radio-group--stack-mobile">
+                  <label class="radio-card radio-card--rich">
+                    <input type="radio" name="differe" value="aucun" required>
+                    <span class="radio-card-body">
+                      <strong data-i18n="differe.aucun.title">Aucun différé</strong>
+                      <small data-i18n="differe.aucun.desc">Remboursement immédiat après déblocage.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card radio-card--rich">
+                    <input type="radio" name="differe" value="partiel">
+                    <span class="radio-card-body">
+                      <strong data-i18n="differe.partiel.title">Différé partiel</strong>
+                      <small data-i18n="differe.partiel.desc">Vous payez uniquement les intérêts pendant les études.</small>
+                    </span>
+                  </label>
+                  <label class="radio-card radio-card--rich">
+                    <input type="radio" name="differe" value="total" checked>
+                    <span class="radio-card-body">
+                      <strong>
+                        <span data-i18n="differe.total.title">Différé total</span>
+                        <span class="tag-recommended" data-i18n="differe.recommended">Recommandé</span>
+                      </strong>
+                      <small data-i18n="differe.total.desc">Aucun remboursement pendant vos études.</small>
+                    </span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-field">
+                <label for="revenus" class="field-label" data-i18n="field.revenus">Revenus mensuels actuels</label>
+                <select id="revenus" name="revenus" class="field-select">
+                  <option value="" disabled selected data-i18n="select.revenus">Sélectionnez une tranche</option>
+                  <option value="0" data-i18n="revenus.0">Aucun revenu</option>
+                  <option value="moins-500" data-i18n="revenus.moins_500">Moins de 500 €</option>
+                  <option value="500-1000" data-i18n="revenus.500_1000">500 € – 1 000 €</option>
+                  <option value="1000-1500" data-i18n="revenus.1000_1500">1 000 € – 1 500 €</option>
+                  <option value="1500-2500" data-i18n="revenus.1500_2500">1 500 € – 2 500 €</option>
+                  <option value="plus-2500" data-i18n="revenus.plus_2500">Plus de 2 500 €</option>
+                </select>
+              </div>
+              <div class="form-field">
+                <span class="field-label">
+                  <span data-i18n="field.garant">Disposez-vous d'un garant ?</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+                <div class="radio-group radio-group--inline">
+                  <label class="radio-card">
+                    <input type="radio" name="garant" value="oui" required>
+                    <span class="radio-card-body" data-i18n="oui">Oui</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="garant" value="non">
+                    <span class="radio-card-body" data-i18n="non">Non</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="garant" value="reflexion">
+                    <span class="radio-card-body" data-i18n="garant.reflexion">En réflexion</span>
+                  </label>
+                </div>
+              </div>
+              <div class="form-field">
+                <span class="field-label" data-i18n="field.credit_en_cours">Avez-vous déjà un crédit en cours ?</span>
+                <div class="radio-group radio-group--inline">
+                  <label class="radio-card">
+                    <input type="radio" name="credit_en_cours" value="oui">
+                    <span class="radio-card-body" data-i18n="oui">Oui</span>
+                  </label>
+                  <label class="radio-card">
+                    <input type="radio" name="credit_en_cours" value="non" checked>
+                    <span class="radio-card-body" data-i18n="non">Non</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline-dark" data-prev-step="4">
+                <span aria-hidden="true">←</span>
+                <span data-i18n="btn.back">Retour</span>
+              </button>
+              <button type="button" class="btn btn-primary btn-lg" data-next-step="4">
+                <span data-i18n="btn.review">Vérifier mon récapitulatif</span>
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="form-step" data-step="5" id="step-5" hidden>
+            <legend class="form-step-legend">
+              <span class="step-badge" data-i18n="step5.badge">Étape 5 / 5</span>
+              <h2 data-i18n="step5.title">Récapitulatif de votre demande</h2>
+              <p data-i18n="step5.desc">Vérifiez les informations ci-dessous avant de valider votre dossier.</p>
+            </legend>
+            <div class="summary-grid" id="summaryGrid" aria-live="polite"></div>
+            <div class="form-field form-field--full consent-field">
+              <label class="checkbox-row">
+                <input type="checkbox" id="consent" name="consent" required>
+                <span>
+                  <span data-i18n="consent.text">J'accepte que mes données personnelles soient traitées par BNP Paribas dans le cadre de ma demande de prêt étudiant, conformément à la politique de confidentialité.</span>
+                  <abbr class="required" title="requis">*</abbr>
+                </span>
+              </label>
+            </div>
+            <div class="form-actions form-actions--submit">
+              <button type="button" class="btn btn-outline-dark" data-prev-step="5">
+                <span aria-hidden="true">←</span>
+                <span data-i18n="btn.modify">Modifier</span>
+              </button>
+              <button type="submit" class="btn btn-primary btn-lg btn-submit" id="submitApplication">
+                <span class="btn-submit-label" data-i18n="btn.submit">Valider ma demande</span>
+                <span class="btn-submit-spinner" hidden></span>
+              </button>
+            </div>
+            <p class="legal-micro" data-i18n="legal.micro">
+              Un crédit vous engage et doit être remboursé. Vérifiez vos capacités de remboursement avant de vous engager.
+              Vous disposez d'un délai légal de rétractation de 14 jours.
+            </p>
+          </fieldset>
+
+        </form>
+
+      </div>
+    </section>
+
+    <section class="agents-section section-pad" id="agentsSection" hidden>
+      <div class="container">
+        <div class="agents-header">
+          <span class="agents-eyebrow" data-i18n="agents.eyebrow">Prochaine étape</span>
+          <h2 data-i18n="agents.title">Votre conseiller régional dédié</h2>
+          <p data-i18n="agents.desc">
+            Un agent BNP Paribas spécialisé dans les prêts étudiants est disponible pour vous accompagner.
+            Contactez-le sur WhatsApp en collant le texte que vous venez de copier.
+          </p>
+        </div>
+        <div class="agents-grid">
+
+          <article class="agent-card">
+            <div class="agent-avatar" aria-hidden="true">SL</div>
+            <div class="agent-info">
+              <h3>Sophie Laurent</h3>
+              <p class="agent-role">Conseillère Prêt Étudiant</p>
+              <p class="agent-region" data-i18n="agents.contact">Contact WhatsApp direct</p>
+              <a href="https://wa.me/447426896544" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                <svg class="icon-whatsapp" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                <span data-i18n="agents.whatsapp">Contacter sur WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="agent-card">
+            <div class="agent-avatar" aria-hidden="true">TM</div>
+            <div class="agent-info">
+              <h3>Thomas Moreau</h3>
+              <p class="agent-role">Conseiller Prêt Étudiant</p>
+              <p class="agent-region" data-i18n="agents.contact">Contact WhatsApp direct</p>
+              <a href="https://wa.me/447426896544" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                <svg class="icon-whatsapp" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                <span data-i18n="agents.whatsapp">Contacter sur WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+          <article class="agent-card">
+            <div class="agent-avatar" aria-hidden="true">AK</div>
+            <div class="agent-info">
+              <h3>Amine Kaddour</h3>
+              <p class="agent-role">Conseiller Prêt Étudiant</p>
+              <p class="agent-region" data-i18n="agents.contact">Contact WhatsApp direct</p>
+              <a href="https://wa.me/447426896544" class="btn btn-whatsapp" target="_blank" rel="noopener">
+                <svg class="icon-whatsapp" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+                  <path fill="currentColor" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                </svg>
+                <span data-i18n="agents.whatsapp">Contacter sur WhatsApp</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="instructions-section section-pad">
+      <div class="container">
+        <div class="instructions-card">
+          <h2 data-i18n="instructions.afterCopy.title">Après avoir copié vos informations</h2>
+          <p data-i18n="instructions.afterCopy.body">Collez le texte directement dans WhatsApp. Votre conseiller pourra traiter votre demande dès réception. Aucun paiement ne doit être effectué avant réception de l'offre formalisée.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4 data-i18n="footer.col.particuliers">Particuliers</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.link.comptes_cartes">Comptes et cartes</a></li>
+            <li><a href="#" data-i18n="footer.link.credits">Crédits</a></li>
+            <li><a href="#" data-i18n="footer.link.epargne">Épargne</a></li>
+            <li><a href="#" data-i18n="footer.link.assurances">Assurances</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-i18n="footer.col.professionnels">Professionnels</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.link.comptes_pro">Comptes pro</a></li>
+            <li><a href="#" data-i18n="footer.link.financements">Financements</a></li>
+            <li><a href="#" data-i18n="footer.link.assurances_pro">Assurances pro</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-i18n="footer.col.bnpp">BNP Paribas</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.link.qui_sommes_nous">Qui sommes-nous</a></li>
+            <li><a href="#" data-i18n="footer.link.carrieres">Carrières</a></li>
+            <li><a href="#" data-i18n="footer.link.presse">Presse</a></li>
+            <li><a href="#" data-i18n="footer.link.rse">RSE</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 data-i18n="footer.col.services">Services</h4>
+          <ul>
+            <li><a href="#" data-i18n="footer.link.trouver_agence">Trouver une agence</a></li>
+            <li><a href="#" data-i18n="footer.link.nous_contacter">Nous contacter</a></li>
+            <li><a href="#" data-i18n="footer.link.aide">Aide</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-legal">
+        <ul class="legal-links">
+          <li><a href="#" data-i18n="footer.legal.mentions">Mentions légales</a></li>
+          <li><a href="#" data-i18n="footer.legal.privacy">Politique de confidentialité</a></li>
+          <li><a href="#" data-i18n="footer.legal.cookies">Cookies</a></li>
+          <li><a href="#" data-i18n="footer.legal.accessibilite">Accessibilité</a></li>
+        </ul>
+        <p class="copyright">
+          <span data-i18n="footer.copyright.prefix">© BNP Paribas</span>
+          <span class="copyright-year">2025</span>.
+          <span data-i18n="footer.copyright.rights">Tous droits réservés.</span>
+        </p>
+        <p class="regulatory">
+          BNP Paribas – SA au capital de 2 499 597 888 € – Siège social : 16 boulevard des Italiens, 75009 Paris.
+          Immatriculée sous le n° 662 042 449 RCS Paris. ORIAS n° 07 022 735.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="progress-overlay" id="progressOverlay" hidden aria-live="assertive" aria-label="Traitement en cours">
+    <div class="progress-panel">
+      <div class="progress-spinner" aria-hidden="true"></div>
+      <p class="progress-title" id="progressTitle">Traitement de vos informations…</p>
+      <div class="progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="progressBar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <p class="progress-sub" id="progressSub">Veuillez ne pas fermer cette page.</p>
+      <p class="progress-percent" id="progressPercent">0 %</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

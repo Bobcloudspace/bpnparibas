@@ -1,0 +1,3518 @@
+/* ==========================================================================
+   BNP PARIBAS — PRÊT ÉTUDIANT
+   Stylesheet: styles.css
+   Author: Front-end reconstruction (educational)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS / CUSTOM PROPERTIES
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand palette */
+  --color-primary:        #00915A;
+  --color-primary-dark:   #007A4B;
+  --color-primary-darker: #005F3A;
+  --color-primary-light:  #E6F4EE;
+
+  /* Neutrals */
+  --color-text:           #333333;
+  --color-text-muted:     #5A5A5A;
+  --color-text-inverse:   #FFFFFF;
+  --color-bg:             #FFFFFF;
+  --color-bg-alt:         #F5F5F5;
+  --color-bg-dark:        #1E2A24;
+  --color-border:         #D9D9D9;
+  --color-border-light:   #EAEAEA;
+
+  /* Feedback */
+  --color-focus:          #0078D4;
+
+  /* Typography */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+               "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  --fs-h1: clamp(2rem, 4.5vw, 3.25rem);
+  --fs-h2: clamp(1.5rem, 2.8vw, 2.125rem);
+  --fs-h3: 1.1875rem;
+  --fs-body: 1rem;
+  --fs-sm: 0.875rem;
+  --fs-xs: 0.75rem;
+  --lh-body: 1.6;
+  --lh-tight: 1.2;
+
+  /* Spacing scale */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* Layout */
+  --container-max: 1240px;
+  --container-pad: 1.25rem;
+  --header-height: 76px;
+
+  /* UI tokens */
+  --radius: 4px;
+  --radius-lg: 8px;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 10px 32px rgba(0, 0, 0, 0.14);
+  --transition: 200ms ease;
+}
+
+/* --------------------------------------------------------------------------
+   2. RESET / BASE
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  margin: 0 0 0.6em;
+  line-height: var(--lh-tight);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  margin: 0 0 1em;
+  padding-left: 1.25em;
+}
+
+li {
+  margin-bottom: 0.4em;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* Focus visibility (WCAG) */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. LAYOUT HELPERS
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.section-pad {
+  padding-block: var(--space-xl);
+}
+
+.section-title {
+  font-size: var(--fs-h2);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. BUTTONS
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.75em 1.6em;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  line-height: 1;
+  border: 2px solid transparent;
+  border-radius: var(--radius);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--transition),
+              color var(--transition),
+              border-color var(--transition),
+              transform var(--transition),
+              box-shadow var(--transition);
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-lg {
+  padding: 0.95em 2em;
+  font-size: 1.0625rem;
+}
+
+/* Primary — brand green */
+.btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* Outline — for use on white/dark backgrounds */
+.btn-outline {
+  background-color: transparent;
+  border-color: currentColor;
+  color: var(--color-text-inverse);
+}
+
+.btn-outline:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-inverse);
+  text-decoration: none;
+}
+
+/* White — for use on colored bands */
+.btn-white {
+  background-color: var(--color-bg);
+  border-color: var(--color-bg);
+  color: var(--color-primary);
+}
+
+.btn-white:hover {
+  background-color: #F0F0F0;
+  border-color: #F0F0F0;
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  box-shadow: var(--shadow-md);
+}
+
+/* --------------------------------------------------------------------------
+   5. GLOBAL HEADER
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+/* Header elevation on scroll (JS toggled) */
+.site-header.is-scrolled {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.10);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  height: 100%;
+}
+
+/* --- Logo --- */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo:hover {
+  text-decoration: none;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35em 0.55em;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 3px;
+}
+
+.logo-text {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--color-text);
+}
+
+/* --- Primary nav --- */
+.main-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  position: relative;
+  display: inline-block;
+  padding: 0.5em 0;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.nav-list a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-primary);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+
+.nav-list a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.nav-list a:hover::after {
+  transform: scaleX(1);
+}
+
+/* --- Header utilities --- */
+.header-utils {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  flex-shrink: 0;
+}
+
+.util-link {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+  text-decoration: none;
+  padding: 0.4em 0.6em;
+  border-radius: var(--radius);
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.util-link:hover {
+  background-color: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  text-decoration: none;
+}
+
+/* --- Language switch (Fix 10) --- */
+.lang-switch {
+  display: inline-flex;
+  align-items: stretch;
+  flex-shrink: 0;
+  border: 1.5px solid var(--color-border);
+  border-radius: 100px;
+  background-color: var(--color-bg);
+  overflow: hidden;
+}
+
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 0.65em;
+  font-family: inherit;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.lang-btn + .lang-btn {
+  border-left: 1px solid var(--color-border);
+}
+
+.lang-btn:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary-dark);
+}
+
+.lang-btn[aria-pressed="true"] {
+  background-color: var(--color-primary);
+  color: var(--color-text-inverse);
+}
+
+.lang-btn[aria-pressed="true"]:hover {
+  background-color: var(--color-primary-dark);
+  color: var(--color-text-inverse);
+}
+
+/* Inset focus ring — container clips with overflow:hidden */
+.lang-btn:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: -2px;
+}
+
+.search-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  border-radius: 50%;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.search-toggle:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary);
+}
+
+/* --- Mobile hamburger --- */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: var(--radius);
+}
+
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  margin-inline: auto;
+  background-color: var(--color-text);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+/* Hamburger → X animation */
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --------------------------------------------------------------------------
+   6. BREADCRUMB
+   -------------------------------------------------------------------------- */
+.breadcrumb {
+  padding-block: var(--space-sm);
+}
+
+.breadcrumb ol {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: var(--fs-sm);
+}
+
+.breadcrumb li {
+  margin: 0;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb li + li::before {
+  content: "›";
+  margin-right: 0.35em;
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a {
+  color: var(--color-text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--color-primary);
+}
+
+.breadcrumb [aria-current="page"] {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   7. HERO
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 560px;
+  padding-block: var(--space-2xl);
+  overflow: hidden;
+  color: var(--color-text-inverse);
+  /* Simulated photographic backdrop using layered gradients */
+  background:
+    radial-gradient(ellipse at 78% 22%, rgba(0, 145, 90, 0.55) 0%, transparent 58%),
+    radial-gradient(ellipse at 18% 88%, rgba(0, 95, 58, 0.65) 0%, transparent 62%),
+    linear-gradient(125deg, #0C2C1F 0%, #123B2A 42%, #0A4A32 100%);
+}
+
+.hero::after {
+  /* Subtle texture / depth layer */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 56px 56px;
+  pointer-events: none;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(8, 30, 21, 0.82) 0%,
+    rgba(8, 30, 21, 0.55) 48%,
+    rgba(8, 30, 21, 0.20) 100%
+  );
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.hero-eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  padding: 0.35em 0.9em;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
+  background-color: rgba(0, 145, 90, 0.85);
+  border-radius: 100px;
+}
+
+.hero h1 {
+  margin-bottom: var(--space-sm);
+  font-size: var(--fs-h1);
+  color: var(--color-text-inverse);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+.hero-subtitle {
+  max-width: 60ch;
+  margin-bottom: var(--space-md);
+  font-size: clamp(1rem, 1.4vw, 1.1875rem);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.hero-cta-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+
+/* --------------------------------------------------------------------------
+   8. KEY FEATURES GRID
+   -------------------------------------------------------------------------- */
+.features {
+  background-color: var(--color-bg);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+}
+
+.feature-card {
+  padding: var(--space-md);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  margin-bottom: var(--space-sm);
+  font-size: 1.5rem;
+  line-height: 1;
+  /* NEW (Fix 9): color for inline SVG icons using currentColor */
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  border-radius: 50%;
+}
+
+/* NEW (Fix 9): ensure inline SVGs inside feature-icon size consistently */
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: currentColor;
+}
+
+.feature-card h3 {
+  margin-bottom: 0.5em;
+  font-size: var(--fs-h3);
+  color: var(--color-text);
+}
+
+.feature-card p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   9. SIMULATION CTA BAND
+   -------------------------------------------------------------------------- */
+.simulation-band {
+  padding-block: var(--space-xl);
+  color: var(--color-text-inverse);
+  background:
+    linear-gradient(115deg, var(--color-primary-darker) 0%, var(--color-primary) 62%, #00A76A 100%);
+}
+
+.simulation-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-lg);
+}
+
+.simulation-copy h2 {
+  margin-bottom: 0.4em;
+  font-size: var(--fs-h2);
+  color: var(--color-text-inverse);
+}
+
+.simulation-copy p {
+  margin: 0;
+  max-width: 52ch;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.simulation-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.micro-copy {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.82);
+  letter-spacing: 0.02em;
+}
+
+/* --------------------------------------------------------------------------
+   10. ACCORDION (shared by Details + FAQ)
+   -------------------------------------------------------------------------- */
+.details {
+  background-color: var(--color-bg-alt);
+}
+
+.accordion {
+  max-width: 900px;
+  margin-inline: auto;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background-color: var(--color-bg);
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-item + .accordion-item {
+  border-top: 1px solid var(--color-border-light);
+}
+
+.accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  width: 100%;
+  padding: 1.15em 1.4em;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  text-align: left;
+  color: var(--color-text);
+  background-color: transparent;
+  border: none;
+  transition: background-color var(--transition), color var(--transition);
+}
+
+.accordion-trigger:hover {
+  background-color: var(--color-bg-alt);
+  color: var(--color-primary-dark);
+}
+
+.accordion-trigger[aria-expanded="true"] {
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+}
+
+/* Plus / minus indicator */
+.accordion-icon {
+  position: relative;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid currentColor;
+  border-radius: 50%;
+  transition: transform var(--transition), background-color var(--transition);
+}
+
+.accordion-icon::before,
+.accordion-icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 10px;
+  height: 2px;
+  background-color: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.accordion-icon::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon {
+  transform: rotate(180deg);
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-icon::after {
+  opacity: 0;
+  transform: translate(-50%, -50%) rotate(90deg) scaleX(0);
+}
+
+/* Panel */
+.accordion-panel {
+  padding: 0 1.4em 1.25em;
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  background-color: var(--color-bg);
+}
+
+.accordion-panel[hidden] {
+  display: none;
+}
+
+.accordion-panel > :last-child {
+  margin-bottom: 0;
+}
+
+.accordion-panel ul {
+  margin-top: 0.25em;
+}
+
+.accordion-panel strong {
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   11. FAQ
+   -------------------------------------------------------------------------- */
+.faq {
+  background-color: var(--color-bg);
+}
+
+.faq .accordion {
+  box-shadow: none;
+  border: 1px solid var(--color-border-light);
+}
+
+/* --------------------------------------------------------------------------
+   12. RELATED PRODUCTS
+   -------------------------------------------------------------------------- */
+.related {
+  background-color: var(--color-bg-alt);
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.related-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-md);
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.related-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+}
+
+.related-card h3 {
+  margin-bottom: 0.5em;
+  font-size: var(--fs-h3);
+  color: var(--color-primary-dark);
+}
+
+.related-card p {
+  flex: 1;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-top: auto;
+  padding-top: 0.5em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.link-arrow span {
+  transition: transform var(--transition);
+}
+
+.link-arrow:hover {
+  text-decoration: none;
+}
+
+.link-arrow:hover span {
+  transform: translateX(4px);
+}
+
+/* --------------------------------------------------------------------------
+   13. GLOBAL FOOTER
+   -------------------------------------------------------------------------- */
+.site-footer {
+  padding-top: var(--space-xl);
+  padding-bottom: var(--space-md);
+  color: rgba(255, 255, 255, 0.78);
+  background-color: var(--color-bg-dark);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.footer-column h4 {
+  margin-bottom: 0.9em;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-text-inverse);
+}
+
+.footer-column ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-column li {
+  margin-bottom: 0.55em;
+}
+
+.footer-column a {
+  font-size: var(--fs-sm);
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-column a:hover {
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+}
+
+/* Legal block */
+.footer-legal {
+  padding-top: var(--space-md);
+}
+
+.legal-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin: 0 0 var(--space-sm);
+  padding: 0;
+  list-style: none;
+}
+
+.legal-links li {
+  margin: 0;
+}
+
+.legal-links a {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: underline;
+}
+
+.legal-links a:hover {
+  color: var(--color-text-inverse);
+}
+
+.copyright {
+  font-size: var(--fs-xs);
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.6em;
+}
+
+.regulatory {
+  max-width: 90ch;
+  margin: 0;
+  font-size: 0.6875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* --------------------------------------------------------------------------
+   14. COOKIE BANNER
+   -------------------------------------------------------------------------- */
+.cookie-banner {
+  position: fixed;
+  left: 50%;
+  bottom: 1rem;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  width: min(900px, calc(100% - 2rem));
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translate(-50%, 0);
+  transition: transform 320ms ease, opacity 320ms ease;
+}
+
+.cookie-banner.is-hidden {
+  opacity: 0;
+  transform: translate(-50%, 140%);
+  pointer-events: none;
+}
+
+.cookie-banner p {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.cookie-actions {
+  display: flex;
+  gap: var(--space-xs);
+  flex-shrink: 0;
+}
+
+.cookie-actions .btn {
+  padding: 0.6em 1.2em;
+  font-size: var(--fs-sm);
+}
+
+.cookie-actions .btn-outline {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.cookie-actions .btn-outline:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* --------------------------------------------------------------------------
+   15. RESPONSIVE — TABLET (≤ 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .simulation-band-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .simulation-action {
+    align-items: flex-start;
+  }
+
+  .related-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* NEW (Fix 6) — Loan-type cards stay 3-up on tablet */
+  .loan-type-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   16. RESPONSIVE — MOBILE (≤ 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  :root {
+    --space-xl: 3rem;
+    --space-2xl: 4rem;
+  }
+
+  /* Header collapse */
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  .util-link {
+    display: none;
+  }
+
+  /* NEW (Fix 10/11): tighten header-utils so lang-switch fits at 375 */
+  .header-utils {
+    gap: 0.35rem;
+  }
+
+  /* NEW (Fix 11): 44px touch target floor for search icon */
+  .search-toggle {
+    width: 44px;
+    height: 44px;
+  }
+
+  /* NEW (Fix 11): lang-switch slightly more compact */
+  .lang-btn {
+    min-width: 40px;
+    padding: 0 0.5em;
+    font-size: 0.6875rem;
+  }
+
+  .main-nav {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    display: block;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    background-color: var(--color-bg);
+    border-bottom: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-md);
+    transition: max-height 300ms ease, padding 300ms ease;
+  }
+
+  .site-header.nav-open .main-nav {
+    max-height: 420px;
+    padding-block: var(--space-sm);
+  }
+
+  .nav-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding-inline: var(--container-pad);
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 0.9em 0;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .nav-list li:last-child a {
+    border-bottom: none;
+  }
+
+  .nav-list a::after {
+    display: none;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 0;
+    padding-block: var(--space-xl);
+  }
+
+  .hero-cta-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-cta-group .btn {
+    width: 100%;
+  }
+
+  /* Features → single column */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section titles */
+  .section-title {
+    text-align: left;
+  }
+
+  /* Related */
+  .related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+
+  /* Cookie banner stacks vertically */
+  .cookie-banner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-sm);
+    padding: var(--space-sm);
+  }
+
+  .cookie-actions {
+    flex-direction: column;
+  }
+
+  .cookie-actions .btn {
+    width: 100%;
+  }
+
+  /* Accordion tap target */
+  .accordion-trigger {
+    padding: 1em;
+    font-size: 1rem;
+  }
+
+  .accordion-panel {
+    padding: 0 1em 1em;
+  }
+
+  /* NEW (Fix 6): loan-type cards single column */
+  .loan-type-group {
+    grid-template-columns: 1fr;
+  }
+
+  /* NEW (Fix 7): file upload stacks and stretches */
+  .file-upload-btn {
+    align-self: stretch;
+    width: 100%;
+  }
+
+  .file-upload-filename {
+    flex-wrap: wrap;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   17. REDUCED MOTION
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. PRINT
+   -------------------------------------------------------------------------- */
+@media print {
+  .site-header,
+  .cookie-banner,
+  .simulation-band,
+  .hero-cta-group {
+    display: none !important;
+  }
+
+  .hero {
+    color: #000;
+    background: none;
+    min-height: 0;
+  }
+
+  .hero h1,
+  .hero-subtitle {
+    color: #000;
+    text-shadow: none;
+  }
+
+  body {
+    font-size: 11pt;
+  }
+}
+/* ==========================================================================
+   BNP PARIBAS — APPLICATION PAGE (DEMANDE DE PRÊT ÉTUDIANT)
+   Append to styles.css — shares tokens, header, footer, base components.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   A1. PAGE-LEVEL OVERRIDES & UTILITIES
+   -------------------------------------------------------------------------- */
+.apply-page {
+  background-color: var(--color-bg-alt);
+}
+
+/* Outline button variant for light backgrounds (back buttons on white cards) */
+.btn-outline-dark {
+  background-color: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn-outline-dark:hover {
+  background-color: var(--color-bg-alt);
+  border-color: var(--color-text-muted);
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+/* --------------------------------------------------------------------------
+   A2. COMPACT HERO + TRUST CHIPS
+   -------------------------------------------------------------------------- */
+.hero--compact {
+  min-height: 360px;
+  padding-block: var(--space-xl);
+}
+
+.hero--compact .hero-subtitle {
+  font-size: 1.0625rem;
+}
+
+.hero-trust-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: var(--space-md);
+}
+
+.trust-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.45em 0.9em;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 100px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* NEW (Fix 9): inline SVG icon inside a trust chip inherits chip color */
+.trust-chip svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   A3. STEPPER / PROGRESS INDICATOR
+   -------------------------------------------------------------------------- */
+.stepper {
+  padding-block: var(--space-lg) var(--space-md);
+}
+
+.stepper-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-xs);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-width: 0;
+}
+
+/* Connecting line to the next dot */
+.stepper-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: calc(50% + 24px);
+  width: calc(100% - 48px);
+  height: 2px;
+  background-color: var(--color-border);
+  z-index: 0;
+  transition: background-color 400ms ease;
+}
+
+.stepper-item.is-complete:not(:last-child)::after {
+  background-color: var(--color-primary);
+}
+
+.stepper-dot {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-border);
+  border-radius: 50%;
+  transition: background-color 300ms ease,
+              border-color 300ms ease,
+              color 300ms ease,
+              box-shadow 300ms ease,
+              transform 300ms ease;
+}
+
+.stepper-item.is-active .stepper-dot {
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 6px rgba(0, 145, 90, 0.15);
+  transform: scale(1.05);
+}
+
+.stepper-item.is-complete .stepper-dot {
+  color: transparent;
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.stepper-item.is-complete .stepper-dot::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-inverse);
+  font-size: 1.15rem;
+}
+
+.stepper-label {
+  margin-top: 0.6rem;
+  max-width: 140px;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--color-text-muted);
+  transition: color 300ms ease;
+}
+
+.stepper-item.is-active .stepper-label,
+.stepper-item.is-complete .stepper-label {
+  color: var(--color-text);
+}
+
+/* --------------------------------------------------------------------------
+   A4. APPLICATION SECTION / FORM LAYOUT
+   -------------------------------------------------------------------------- */
+.apply-section {
+  background-color: var(--color-bg-alt);
+}
+
+.apply-container {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.apply-form {
+  margin: 0;
+}
+
+/* Fieldset reset — remove browser default borders */
+.form-step {
+  display: none;
+  margin: 0;
+  padding: var(--space-lg) var(--space-lg) var(--space-md);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-step[hidden] {
+  display: none !important;
+}
+
+.form-step:not([hidden]) {
+  display: block;
+  animation: stepReveal 480ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes stepReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Legend styled as a heading block */
+.form-step-legend {
+  display: block;
+  width: 100%;
+  margin-bottom: var(--space-lg);
+  padding: 0;
+}
+
+.form-step-legend h2 {
+  margin: 0.4em 0 0.35em;
+  font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+  color: var(--color-text);
+}
+
+.form-step-legend p {
+  margin: 0;
+  max-width: 60ch;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.step-badge {
+  display: inline-block;
+  padding: 0.35em 0.85em;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  border-radius: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   A5. FORM GRID & FIELDS
+   -------------------------------------------------------------------------- */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md) var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.form-field--full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  display: inline-block;
+  margin-bottom: 0.5em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  letter-spacing: 0.005em;
+}
+
+.required {
+  color: #D14343;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 0.15em;
+}
+
+/* Base field styling shared by input/select/textarea */
+.field-input,
+.field-select,
+.field-input[type="search"] {
+  width: 100%;
+  padding: 0.85em 1em;
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: border-color 200ms ease,
+              box-shadow 200ms ease,
+              background-color 200ms ease;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.field-input::placeholder {
+  color: #A5A5A5;
+  opacity: 1;
+}
+
+.field-input:hover,
+.field-select:hover {
+  border-color: #B8B8B8;
+}
+
+.field-input:focus,
+.field-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(0, 145, 90, 0.14);
+  background-color: var(--color-bg);
+}
+
+.field-input:invalid:not(:placeholder-shown):not(:focus):not([type="radio"]):not([type="checkbox"]) {
+  border-color: #D14343;
+  box-shadow: 0 0 0 3px rgba(209, 67, 67, 0.10);
+}
+
+.field-input[type="date"],
+.field-input[type="month"] {
+  color: var(--color-text);
+}
+
+.field-input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Native number-input spinners off for cleaner look */
+.field-input[type="number"]::-webkit-outer-spin-button,
+.field-input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Custom caret for selects */
+.field-select {
+  padding-right: 2.75em;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3e%3cpath fill='%23333' d='M6 8 0 0h12z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1em center;
+  background-size: 12px 8px;
+}
+
+.field-select option {
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+/* NEW (Fix 11 replacement — duration cap): disabled options must read as
+   unavailable, not broken. Native `<option disabled>` is honoured by the
+   JS when montant >= 10 000 €; this gives it a clear visual state. */
+.field-select option:disabled {
+  color: #B0B0B0;
+  background-color: var(--color-bg-alt);
+}
+
+.field-select optgroup {
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg-alt);
+  font-style: normal;
+}
+
+.field-hint {
+  margin: 0.45em 0 0;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* NEW (Fix 11 replacement): warning variant used by #dureeCapHint.
+   Amber colour + CSS-drawn "!" badge (no emoji). The [hidden] guard is
+   explicit because the `display: flex` below would otherwise override
+   the browser default for the hidden attribute. */
+.field-hint--warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5em;
+  color: #B45309;
+  font-weight: 600;
+}
+
+.field-hint--warning[hidden] {
+  display: none !important;
+}
+
+.field-hint--warning::before {
+  content: "!";
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-top: 0.05em;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  color: #FFFFFF;
+  background-color: #D97706;
+  border-radius: 50%;
+}
+
+/* Subtle appearance when the cap hint is revealed by JS */
+.field-hint--warning:not([hidden]) {
+  animation: warningFadeIn 300ms ease both;
+}
+
+@keyframes warningFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Institution search box */
+.select-search-wrap {
+  position: relative;
+  margin-bottom: 0.5em;
+}
+
+.select-search {
+  padding-left: 1em;
+  font-size: var(--fs-sm);
+}
+
+.field-select--tall {
+  max-height: none;
+}
+
+/* --------------------------------------------------------------------------
+   A6. RADIO CARDS (INLINE PILLS & RICH VARIANT)
+   -------------------------------------------------------------------------- */
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.15em;
+}
+
+.radio-group--inline {
+  flex-direction: row;
+}
+
+.radio-card {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.radio-card:hover {
+  transform: translateY(-1px);
+}
+
+/* Hide the native radio but keep it focusable */
+.radio-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.radio-card-body {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75em 1.35em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius);
+  transition: all 200ms ease;
+}
+
+.radio-card:hover .radio-card-body {
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+}
+
+.radio-card input:focus-visible + .radio-card-body {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* Checked state via :has() */
+.radio-card:has(input:checked) .radio-card-body {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  color: var(--color-primary-dark);
+  box-shadow: 0 0 0 3px rgba(0, 145, 90, 0.10);
+}
+
+/* Rich radio cards (with title + description) */
+.radio-group--stack-mobile .radio-card--rich {
+  flex: 1 1 220px;
+}
+
+.radio-card--rich {
+  flex: 1;
+}
+
+.radio-card--rich .radio-card-body {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25em;
+  width: 100%;
+  padding: 1em 1.2em;
+  text-align: left;
+}
+
+.radio-card--rich .radio-card-body strong {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.4em;
+}
+
+.radio-card--rich .radio-card-body small {
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+.tag-recommended {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 100px;
+}
+
+/* --------------------------------------------------------------------------
+   A26. COPY-INFORMATION CTA
+   -------------------------------------------------------------------------- */
+.copy-cta-wrap {
+  display: flex;
+  justify-content: center;
+  margin: 0 0 var(--space-md);
+}
+
+.copy-cta-wrap[hidden] {
+  display: none !important;
+}
+
+.copy-cta-wrap .btn-copy {
+  min-width: 260px;
+}
+
+.btn-copy.is-copied {
+  background-color: #047857 !important;
+  border-color: #047857 !important;
+}
+
+@media (max-width: 768px) {
+  .copy-cta-wrap .btn-copy {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   A7. AMOUNT PRESETS GRID
+   -------------------------------------------------------------------------- */
+.amount-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+}
+
+.amount-card {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  transition: transform 200ms ease;
+  isolation: isolate;
+}
+
+.amount-card:hover {
+  transform: translateY(-3px);
+}
+
+.amount-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.amount-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3em;
+  width: 100%;
+  padding: 1em 1.1em;
+  text-align: left;
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 220ms ease,
+              background-color 220ms ease,
+              box-shadow 220ms ease,
+              color 220ms ease;
+}
+
+.amount-card:hover .amount-card-body {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.amount-card input:focus-visible + .amount-card-body {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.amount-value {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-text);
+  letter-spacing: -0.01em;
+  transition: color 220ms ease;
+}
+
+.amount-desc {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.3;
+}
+
+/* Selected state */
+.amount-card:has(input:checked) .amount-card-body {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  border-width: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 145, 90, 0.12);
+}
+
+.amount-card:has(input:checked) .amount-value {
+  color: var(--color-primary-dark);
+}
+
+/* Floating check indicator */
+.amount-card:has(input:checked)::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  animation: checkPop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes checkPop {
+  from { transform: scale(0.4); opacity: 0; }
+  to   { transform: scale(1);   opacity: 1; }
+}
+
+/* Badge (top label) */
+.amount-badge {
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  padding: 0.2em 0.75em;
+  font-size: 0.625rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 100px;
+  white-space: nowrap;
+  box-shadow: 0 2px 6px rgba(0, 145, 90, 0.35);
+}
+
+.amount-card--popular .amount-card-body {
+  border-color: var(--color-primary);
+}
+
+.amount-card--max .amount-badge {
+  background: linear-gradient(135deg, #B07B0E 0%, #D4A017 100%);
+  box-shadow: 0 2px 6px rgba(180, 130, 30, 0.4);
+}
+
+.amount-card--max .amount-value {
+  color: #8A6508;
+}
+
+/* Custom amount row */
+.custom-amount-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed var(--color-border-light);
+}
+
+.custom-amount-label {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.custom-amount-input-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  flex: 1 1 200px;
+  max-width: 260px;
+}
+
+.custom-amount-input-wrap .field-input {
+  padding-right: 2.5em;
+}
+
+.custom-amount-suffix {
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: 700;
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   A8. CONSENT / CHECKBOX ROW
+   -------------------------------------------------------------------------- */
+.consent-field {
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  color: var(--color-text);
+}
+
+.checkbox-row input[type="checkbox"] {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 0.15em;
+  accent-color: var(--color-primary);
+  cursor: pointer;
+}
+
+.checkbox-row a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   A9. FORM ACTIONS
+   -------------------------------------------------------------------------- */
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-light);
+}
+
+.form-actions--submit {
+  border-top: none;
+  margin-top: var(--space-md);
+}
+
+.form-step-note {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  order: -1;
+  flex-basis: 100%;
+}
+
+.form-actions .btn-primary {
+  margin-left: auto;
+}
+
+/* Submit button loading state */
+.btn-submit {
+  position: relative;
+  min-width: 220px;
+  transition: background-color 200ms ease, opacity 200ms ease;
+}
+
+.btn-submit[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-submit-spinner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-left: 0.5em;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  border-top-color: var(--color-text-inverse);
+  border-radius: 50%;
+  animation: spin 700ms linear infinite;
+}
+
+/* --------------------------------------------------------------------------
+   A10. LEGAL MICROCOPY
+   -------------------------------------------------------------------------- */
+.legal-micro {
+  margin: var(--space-md) 0 0;
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--color-border-light);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   A11. SUMMARY GRID (injected by JS)
+   -------------------------------------------------------------------------- */
+.summary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.summary-section {
+  padding: var(--space-md);
+  background-color: var(--color-bg-alt);
+  border-radius: var(--radius-lg);
+  border-left: 4px solid var(--color-primary);
+}
+
+.summary-section h3 {
+  margin: 0 0 0.75em;
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--color-primary-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.summary-row {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  padding: 0.4em 0;
+  border-bottom: 1px dashed var(--color-border-light);
+  font-size: var(--fs-sm);
+}
+
+.summary-row:last-child {
+  border-bottom: none;
+}
+
+.summary-label {
+  flex: 0 0 42%;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.summary-value {
+  flex: 1;
+  color: var(--color-text);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+/* --------------------------------------------------------------------------
+   A13. AGENTS SECTION
+   -------------------------------------------------------------------------- */
+.agents-section {
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(0, 145, 90, 0.06) 0%, transparent 55%),
+    linear-gradient(180deg, var(--color-bg) 0%, #F7FBF9 100%);
+}
+
+.agents-section[hidden] {
+  display: none !important;
+}
+
+.agents-header {
+  max-width: 720px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+
+.agents-eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-sm);
+  padding: 0.35em 0.85em;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+  background-color: var(--color-primary-light);
+  border-radius: 100px;
+}
+
+.agents-header h2 {
+  margin: 0 0 0.5em;
+  font-size: var(--fs-h2);
+}
+
+.agents-header p {
+  font-size: var(--fs-body);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.agents-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.agent-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 250ms ease, box-shadow 250ms ease, border-color 250ms ease;
+}
+
+.agent-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+/* NEW (Fix 3): offline agent state — exactly one of three is online per load */
+.agent-card.is-offline {
+  opacity: 0.55;
+  filter: grayscale(0.35);
+}
+
+.agent-card.is-offline:hover {
+  transform: none;
+  border-color: var(--color-border-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.agent-card.is-offline .agent-avatar {
+  background: linear-gradient(135deg, #A0A0A0 0%, #6E6E6E 100%);
+  box-shadow: none;
+}
+
+.agent-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 76px;
+  height: 76px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-text-inverse);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-darker) 100%);
+  border-radius: 50%;
+  box-shadow: 0 6px 18px rgba(0, 145, 90, 0.28);
+}
+
+.agent-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  width: 100%;
+}
+
+.agent-info h3 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.agent-role {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+}
+
+.agent-region,
+.agent-agency {
+  margin: 0;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+/* NEW (Fix 3): "Hors ligne" pill inside offline agent cards */
+.agent-offline-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  align-self: center;
+  margin-top: 0.5rem;
+  padding: 0.3em 0.85em;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-border-light);
+  border-radius: 100px;
+}
+
+.agent-offline-label::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background-color: #9A9A9A;
+  border-radius: 50%;
+}
+
+/* WhatsApp CTA */
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  width: 100%;
+  margin-top: var(--space-sm);
+  padding: 0.85em 1.2em;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  background-color: #25D366;
+  border: 2px solid #25D366;
+  border-radius: var(--radius);
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.28);
+  transition: background-color 200ms ease,
+              border-color 200ms ease,
+              transform 200ms ease,
+              box-shadow 200ms ease;
+}
+
+.btn-whatsapp:hover {
+  background-color: #1FBE5A;
+  border-color: #1FBE5A;
+  color: #FFFFFF;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+.btn-whatsapp:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+}
+
+/* NEW (Fix 3): disabled / offline WhatsApp button */
+.agent-card.is-offline .btn-whatsapp,
+.btn-whatsapp[aria-disabled="true"],
+.btn-whatsapp.is-offline {
+  background-color: #B0B0B0;
+  border-color: #B0B0B0;
+  color: #FFFFFF;
+  cursor: not-allowed;
+  pointer-events: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.icon-whatsapp {
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   A14. INSTRUCTIONS SECTION
+   -------------------------------------------------------------------------- */
+.instructions-section {
+  background-color: var(--color-bg-alt);
+}
+
+.instructions-card {
+  max-width: 900px;
+  margin-inline: auto;
+  padding: var(--space-lg);
+  background-color: #FFF9EC;
+  border: 1px solid #F0E0B8;
+  border-left: 5px solid #D4A017;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.instructions-card h2 {
+  margin: 0 0 var(--space-md);
+  font-size: 1.375rem;
+  color: #8A6508;
+}
+
+.instructions-list {
+  margin: 0 0 var(--space-md);
+  padding-left: 1.5em;
+  list-style: decimal;
+}
+
+.instructions-list li {
+  margin-bottom: 0.9em;
+  padding-left: 0.35em;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
+
+.instructions-list li strong {
+  color: #6B4F0A;
+}
+
+/* NEW (Fix 7): highlight for the 5th instruction (ID live verification) */
+.instructions-list li.instructions-highlight {
+  padding: 0.75em 1em;
+  background-color: rgba(212, 160, 23, 0.1);
+  border-left: 3px solid #D4A017;
+  border-radius: var(--radius);
+  list-style-position: inside;
+  margin-left: -0.5em;
+}
+
+.instructions-footnote {
+  margin: 0;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: #8A6508;
+  background-color: rgba(212, 160, 23, 0.12);
+  border-radius: var(--radius);
+  line-height: 1.5;
+}
+
+/* --------------------------------------------------------------------------
+   A15. FULL-SCREEN PROGRESS OVERLAY
+   -------------------------------------------------------------------------- */
+.progress-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  background-color: rgba(8, 30, 21, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 0s linear 300ms;
+}
+
+.progress-overlay[hidden] {
+  display: none !important;
+}
+
+.progress-overlay.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease, visibility 0s linear 0s;
+}
+
+.progress-panel {
+  width: min(520px, 100%);
+  padding: var(--space-lg);
+  text-align: center;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(16px) scale(0.96);
+  opacity: 0;
+  transition: transform 400ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 400ms ease;
+}
+
+.progress-overlay.is-visible .progress-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* Spinner */
+.progress-spinner {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-md);
+  border: 5px solid var(--color-primary-light);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 900ms linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.progress-title {
+  margin: 0 0 var(--space-md);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.progress-track {
+  position: relative;
+  width: 100%;
+  height: 10px;
+  margin-bottom: 0.75rem;
+  overflow: hidden;
+  background-color: var(--color-primary-light);
+  border-radius: 100px;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary) 0%, #00C57A 100%);
+  border-radius: inherit;
+  transition: width 350ms cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-fill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.4) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s linear infinite;
+}
+
+@keyframes shimmer {
+  from { transform: translateX(-100%); }
+  to   { transform: translateX(100%); }
+}
+
+.progress-sub {
+  margin: 0 0 0.5rem;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+}
+
+.progress-percent {
+  margin: 0;
+  font-size: var(--fs-sm);
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: 0.02em;
+}
+
+/* "Done" state */
+.progress-overlay.is-done .progress-spinner {
+  animation: none;
+  border-color: var(--color-primary);
+  background-color: var(--color-primary);
+  position: relative;
+}
+
+.progress-overlay.is-done .progress-spinner::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--color-text-inverse);
+  animation: checkPop 400ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* --------------------------------------------------------------------------
+   A16. READ-THIS MODAL
+   -------------------------------------------------------------------------- */
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-md);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 300ms ease, visibility 0s linear 300ms;
+}
+
+.modal[hidden] {
+  display: none !important;
+}
+
+.modal.is-visible {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 300ms ease, visibility 0s linear 0s;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(10, 25, 18, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+}
+
+.modal-panel {
+  position: relative;
+  z-index: 1;
+  width: min(520px, 100%);
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  text-align: center;
+  background-color: var(--color-bg);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(24px) scale(0.95);
+  opacity: 0;
+  transition: transform 380ms cubic-bezier(0.22, 1, 0.36, 1),
+              opacity 380ms ease;
+}
+
+.modal.is-visible .modal-panel {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+/* READ-THIS — bold, uppercase, amber (attention, not error) */
+.read-this-label {
+  display: block;
+  margin: 0 0 var(--space-sm);
+  font-size: 1.5rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #B45309;
+  line-height: 1.15;
+}
+
+.read-this-title {
+  margin: 0 0 var(--space-md);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  color: var(--color-text);
+  line-height: 1.5;
+}
+
+.read-this-steps {
+  margin: 0 0 var(--space-lg);
+  padding-left: 1.5em;
+  text-align: left;
+  list-style: decimal;
+  color: var(--color-text);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+}
+
+.read-this-steps li {
+  margin-bottom: 0.65em;
+  padding-left: 0.35em;
+}
+
+.read-this-steps li::marker {
+  color: var(--color-primary-dark);
+  font-weight: 700;
+}
+
+#readThisDismiss {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   A17. RESPONSIVE — TABLET (≤ 1024px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+  .agents-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .agent-card:last-child {
+    grid-column: 1 / -1;
+    max-width: 460px;
+    margin-inline: auto;
+  }
+
+  .amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   A18. RESPONSIVE — MOBILE (≤ 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .hero--compact {
+    min-height: 0;
+    padding-block: var(--space-lg);
+  }
+
+  .hero--compact .hero-cta-group {
+    display: none;
+  }
+
+  /* Stepper — hide long labels, keep dots */
+  .stepper {
+    padding-block: var(--space-md);
+  }
+
+  .stepper-label {
+    display: none;
+  }
+
+  .stepper-item:not(:last-child)::after {
+    top: 19px;
+    left: calc(50% + 22px);
+    width: calc(100% - 44px);
+  }
+
+  .stepper-dot {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9375rem;
+  }
+
+  /* Form */
+  .form-step {
+    padding: var(--space-md);
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+    align-items: stretch;
+  }
+
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  .form-actions .btn-primary {
+    margin-left: 0;
+  }
+
+  /* Radio group stacks */
+  .radio-group--inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .radio-card {
+    width: 100%;
+  }
+
+  .radio-card-body {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .radio-card--rich .radio-card-body {
+    justify-content: flex-start;
+  }
+
+  /* Amount cards — 2 columns still readable */
+  .amount-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem;
+  }
+
+  .amount-card-body {
+    padding: 0.85em 0.9em;
+  }
+
+  .amount-value {
+    font-size: 1.0625rem;
+  }
+
+  .amount-badge {
+    font-size: 0.5625rem;
+    padding: 0.15em 0.55em;
+  }
+
+  .custom-amount-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .custom-amount-input-wrap {
+    max-width: 100%;
+  }
+
+  /* Agents single column */
+  .agents-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .agent-card:last-child {
+    max-width: 100%;
+  }
+
+  /* Instructions */
+  .instructions-card {
+    padding: var(--space-md);
+  }
+
+  /* Progress panel */
+  .progress-panel {
+    padding: var(--space-md);
+  }
+
+  .progress-spinner {
+    width: 52px;
+    height: 52px;
+  }
+
+  /* Modal */
+  .modal-panel {
+    padding: var(--space-lg) var(--space-sm) var(--space-sm);
+  }
+
+  /* Summary */
+  .summary-section {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  .summary-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .summary-label {
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 420px) {
+  .amount-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   A19. REDUCED MOTION OVERRIDES
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .form-step:not([hidden]) {
+    animation: none;
+  }
+
+  .progress-spinner,
+  .btn-submit-spinner,
+  .progress-fill::after {
+    animation-duration: 2s !important;
+  }
+
+  .amount-card:has(input:checked)::after,
+  .loan-type-card:has(input:checked)::after {
+    animation: none;
+  }
+
+  .progress-panel,
+  .modal-panel {
+    transition-duration: 100ms !important;
+  }
+}
+
+/* ==========================================================================
+   A20. INLINE FIELD ERROR
+   --------------------------------------------------------------------------
+   Live red validation message shown directly under a field (currently the
+   custom-amount input). JS toggles the `hidden` attribute; CSS handles the
+   visible layout. Works in tandem with `.field-input.is-invalid` (which is
+   injected by script.js's injectApplyStyles() — kept there for cohesion with
+   the other transient error states).
+   ========================================================================== */
+.field-error {
+  display: flex;
+  align-items: center;
+  gap: 0.4em;
+  margin: 0.5em 0 0;
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: #D14343;
+  line-height: 1.4;
+}
+
+.field-error::before {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  background-color: #D14343;
+  border-radius: 50%;
+}
+
+.field-error[hidden] {
+  display: none !important;
+}
+
+/* Shake the input on invalid commit — reuses existing shake animation */
+.field-input.is-shake {
+  animation: shake 380ms cubic-bezier(.36,.07,.19,.97) both;
+}
+
+/* ==========================================================================
+   A21. LOAN TYPE SELECTOR
+   --------------------------------------------------------------------------
+   Three top-level radio cards that select the loan product before the amount
+   grid is rendered. Mirrors `.amount-card` interaction model (floating check,
+   spring pop, hover lift) but stacked layout because each card carries a name
+   + ceiling + short description.
+   ========================================================================== */
+.loan-type-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.85rem;
+  margin-top: 0.75rem;
+  margin-bottom: var(--space-md);
+}
+
+.loan-type-card {
+  position: relative;
+  display: flex;
+  cursor: pointer;
+  transition: transform 200ms ease;
+  isolation: isolate;
+}
+
+.loan-type-card:hover {
+  transform: translateY(-3px);
+}
+
+.loan-type-card input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+.loan-type-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.45em;
+  width: 100%;
+  padding: 1.1em 1.2em;
+  text-align: left;
+  background-color: var(--color-bg);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  transition: border-color 220ms ease,
+              background-color 220ms ease,
+              box-shadow 220ms ease;
+}
+
+.loan-type-card:hover .loan-type-card-body {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.loan-type-card input:focus-visible + .loan-type-card-body {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.loan-type-card:has(input:checked) .loan-type-card-body {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary);
+  border-width: 2px;
+  box-shadow: 0 0 0 4px rgba(0, 145, 90, 0.12);
+}
+
+.loan-type-card:has(input:checked)::after {
+  content: "✓";
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-inverse);
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+  animation: checkPop 300ms cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.loan-type-name {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.3;
+  transition: color 220ms ease;
+}
+
+.loan-type-card:has(input:checked) .loan-type-name {
+  color: var(--color-primary-dark);
+}
+
+.loan-type-ceiling {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--color-primary-dark);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.loan-type-desc {
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--color-text-muted);
+  line-height: 1.4;
+}
+
+/* Amount section hidden until a loan type is picked */
+.amount-section {
+  transition: opacity 200ms ease;
+}
+
+.amount-section[hidden] {
+  display: none !important;
+}
+
+/* Amount section as a grouped block beneath the loan-type selector */
+.amount-section-block {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-border-light);
+}
+
+/* ==========================================================================
+   A22. STUDENT ID VERIFICATION
+   --------------------------------------------------------------------------
+   Appears inside step 3 only when the "Prêt étudiant humanitaire" loan type
+   is selected in step 4. Contains: ID-type select, file-upload (custom
+   button + native input), filename display, optional image preview.
+   ========================================================================== */
+.id-verify-section {
+  grid-column: 1 / -1;
+  margin-top: var(--space-md);
+  padding: var(--space-md);
+  background-color: var(--color-primary-light);
+  border: 1px solid rgba(0, 145, 90, 0.25);
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--radius-lg);
+  animation: stepReveal 380ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.id-verify-section[hidden] {
+  display: none !important;
+}
+
+.id-verify-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin: 0 0 0.5em;
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary-dark);
+}
+
+.id-verify-heading svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.id-verify-desc {
+  margin: 0 0 var(--space-md);
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+}
+
+.id-verify-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+}
+
+/* File upload widget — label wraps the native input */
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6em;
+}
+
+.file-upload-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.file-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55em;
+  align-self: flex-start;
+  min-height: 44px;
+  padding: 0.75em 1.3em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  background-color: var(--color-bg);
+  border: 1.5px dashed var(--color-primary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 200ms ease,
+              border-color 200ms ease,
+              box-shadow 200ms ease;
+}
+
+.file-upload-btn:hover {
+  background-color: var(--color-primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.file-upload-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  stroke: currentColor;
+}
+
+.file-upload-input:focus-visible + .file-upload-btn {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.file-upload-filename {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.65em 1em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  word-break: break-all;
+}
+
+.file-upload-filename span {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, monospace;
+  font-size: 0.8125rem;
+}
+
+.file-upload-filename[hidden] {
+  display: none !important;
+}
+
+.file-upload-filename::before {
+  content: "";
+  display: inline-block;
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+  border-radius: 50%;
+}
+
+.file-upload-preview {
+  max-width: 240px;
+  max-height: 180px;
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--color-bg-alt);
+}
+
+.file-upload-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.file-upload-preview[hidden] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   A23. MOBILE TIGHTENING — 375px
+   --------------------------------------------------------------------------
+   Extra layer below the 420px block for very small viewports. Guarantees
+   header cluster fits, form actions are tappable, modal + progress panels
+   stay inside the viewport, and every interactive element is ≥ 44px.
+   ========================================================================== */
+@media (max-width: 375px) {
+  /* Header: fit lang-switch + search + hamburger next to logo */
+  .header-utils {
+    gap: 0.3rem;
+  }
+
+  .logo {
+    gap: 0.35rem;
+  }
+
+  .logo-mark {
+    padding: 0.3em 0.45em;
+    font-size: 0.875rem;
+  }
+
+  .logo-text {
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+  }
+
+  .lang-btn {
+    min-width: 38px;
+    padding: 0 0.4em;
+    font-size: 0.625rem;
+  }
+
+  .search-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Form tighter still */
+  .form-step {
+    padding: var(--space-sm) var(--space-sm) var(--space-md);
+  }
+
+  .form-step-legend {
+    margin-bottom: var(--space-md);
+  }
+
+  .form-step-legend h2 {
+    font-size: 1.2rem;
+  }
+
+  /* Amount cards — single column all the way down */
+  .amount-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .amount-card-body {
+    padding: 0.85em 1em;
+  }
+
+  /* Loan-type cards single column */
+  .loan-type-group {
+    grid-template-columns: 1fr;
+    gap: 0.6rem;
+  }
+
+  .loan-type-card-body {
+    padding: 0.9em 1em;
+  }
+
+  /* ID verify: single-column grid */
+  .id-verify-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  /* Custom amount row */
+  .custom-amount-input-wrap {
+    max-width: 100%;
+  }
+
+  /* Progress panel: near-full-width, safe padding */
+  .progress-panel {
+    padding: var(--space-md) var(--space-sm);
+    border-radius: var(--radius-lg);
+  }
+
+  .progress-title {
+    font-size: 1rem;
+  }
+
+  .progress-spinner {
+    width: 44px;
+    height: 44px;
+    border-width: 4px;
+  }
+
+  /* Modal */
+  .modal-panel {
+    padding: var(--space-md) var(--space-sm) var(--space-sm);
+    border-radius: var(--radius-lg);
+  }
+  .read-this-label { font-size: 1.25rem; 
+  
+  }
+
+  .read-this-steps { font-size: 0.875rem; padding-left: 1.25em;
+
+    }
+
+  /* Agents */
+  .agent-card {
+    padding: var(--space-md) var(--space-sm);
+    gap: var(--space-sm);
+  }
+
+  .agent-avatar {
+    width: 64px;
+    height: 64px;
+    font-size: 1.25rem;
+  }
+
+  .btn-whatsapp {
+    font-size: 0.875rem;
+    padding: 0.9em 1em;
+  }
+
+  /* Instructions */
+  .instructions-card {
+    padding: var(--space-sm);
+  }
+
+  .instructions-list {
+    padding-left: 1.25em;
+  }
+
+  .instructions-list li {
+    font-size: 0.9rem;
+  }
+
+  /* File upload: full-width button */
+  .file-upload-btn {
+    width: 100%;
+    align-self: stretch;
+    padding: 0.85em 1em;
+  }
+
+  /* Trust chips wrap tightly */
+  .hero-trust-row {
+    gap: 0.4rem;
+  }
+
+  .trust-chip {
+    font-size: var(--fs-xs);
+    padding: 0.35em 0.75em;
+  }
+
+  /* Stepper dots — keep above the touch floor for visual clarity */
+  .stepper-dot {
+    width: 40px;
+    height: 40px;
+    font-size: 0.9375rem;
+  }
+
+  .stepper-item:not(:last-child)::after {
+    top: 19px;
+    left: calc(50% + 22px);
+    width: calc(100% - 44px);
+  }
+
+  /* Breadcrumb wraps without h-scroll */
+  .breadcrumb ol {
+    font-size: 0.7rem;
+    gap: 0.2em;
+  }
+
+  /* Summary: stack label above value (already done at 768, reinforced here) */
+  .summary-label {
+    flex-basis: auto;
+  }
+
+  /* Footer legal links stay readable */
+  .legal-links {
+    gap: 0.5rem;
+  }
+}
+
+/* ==========================================================================
+   A24. PRINT + REDUCED MOTION OVERRIDES FOR NEW COMPONENTS
+   ========================================================================== */
+@media print {
+  .lang-switch,
+  .progress-overlay,
+  .modal,
+  .loan-type-group,
+  .id-verify-section {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loan-type-card {
+    transition: none;
+  }
+
+  .id-verify-section {
+    animation: none;
+  }
+
+  .field-input.is-shake {
+    animation: none;
+  }
+
+  .field-hint--warning:not([hidden]) {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   A25. POLISH & POST-FIX REFINEMENTS
+   --------------------------------------------------------------------------
+   Small, optional visual improvements that go hand-in-hand with the new
+   features landing in script.js this cycle. All additive; none override
+   existing behaviour.
+   ========================================================================== */
+
+/* Copyright — the year is injected by JS and lives in its own span inside
+   `.copyright`. Tabular numerics keep the trailing period glued to the
+   year even if a font renders digits at variable widths; nowrap prevents
+   an accidental line break between "2025" and ".". */
+.copyright .copyright-year {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* Summary values — amounts, dates, references all benefit from tabular
+   digits so columns line up when the user scans the recap. */
+.summary-value {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Agent online indicator — a small green dot anchored to the avatar of
+   the single online agent. Matches the mental model of WhatsApp / other
+   messaging products. Offline agents already have their own greyed state
+   via `.is-offline`; this only decorates the opposite case. */
+.agent-card:not(.is-offline) .agent-avatar {
+  position: relative;
+}
+
+.agent-card:not(.is-offline) .agent-avatar::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 18px;
+  height: 18px;
+  background-color: #22C55E;
+  border: 3px solid var(--color-bg);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Duration cap hint — ensure comfortable spacing when it sits below the
+   standard `.field-hint` on the duration select. */
+.field-hint + .field-hint--warning {
+  margin-top: 0.35em;
+}
+
+/* Disabled state for the loan-type-cards (used only if JS ever needs to
+   grey out the whole group; harmless otherwise). */
+.loan-type-card input:disabled ~ .loan-type-card-body {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.loan-type-card:has(input:disabled) {
+  cursor: not-allowed;
+}
+
+.loan-type-card:has(input:disabled):hover {
+  transform: none;
+}
+
+.loan-type-card:has(input:disabled):hover .loan-type-card-body {
+  border-color: var(--color-border);
+  box-shadow: none;
+}
